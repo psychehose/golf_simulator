@@ -29,7 +29,12 @@ void GolfBall::update(double dt)
   // 양력 계산
   double liftForce = 0.5 * airDensity * liftCoefficient * area * velocity * velocity;
 
+  // 가속도는 F = ma에서 구하기 a = f/m
+  // x축 가속도:
+  // cos(Theta) = vx / velocity 공기저항력 벡터 분해
   double ax = -(dragForce * vx / velocity) / mass;
+  // y축 가속도:
+  // sin(Theta) = vy / velocity 공기저항력 벡터 분해
   double ay = -gravity - (dragForce * vy / velocity) / mass + (liftForce / mass);
 
   x += vx * dt;
