@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F442CEB6A6100AB0119 /* main.cpp */; };
 		77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */; };
+		77BD0F532CF2FFD900AB0119 /* GolfBallRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */; };
 		77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F562CF30AD800AB0119 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		77BD0F442CEB6A6100AB0119 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GolfBall.cpp; sourceTree = "<group>"; };
 		77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GolfBall.hpp; sourceTree = "<group>"; };
+		77BD0F512CF2FFD900AB0119 /* golf_simulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "golf_simulator-Bridging-Header.h"; sourceTree = "<group>"; };
+		77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfBallRenderer.swift; sourceTree = "<group>"; };
 		77BD0F562CF30AD800AB0119 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +71,7 @@
 				77BD0F442CEB6A6100AB0119 /* main.cpp */,
 				77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */,
 				77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */,
+				77BD0F512CF2FFD900AB0119 /* golf_simulator-Bridging-Header.h */,
 			);
 			path = golf_simulator;
 			sourceTree = "<group>";
@@ -75,6 +79,7 @@
 		77BD0F502CF2FF0200AB0119 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
+				77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */,
 				77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */,
 				77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */,
+				77BD0F532CF2FFD900AB0119 /* GolfBallRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,20 +285,27 @@
 		77BD0F492CEB6A6100AB0119 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83LNUYN53Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "golf_simulator/golf_simulator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		77BD0F4A2CEB6A6100AB0119 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83LNUYN53Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "golf_simulator/golf_simulator-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
