@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F442CEB6A6100AB0119 /* main.cpp */; };
 		77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */; };
+		77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F562CF30AD800AB0119 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		77BD0F442CEB6A6100AB0119 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GolfBall.cpp; sourceTree = "<group>"; };
 		77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GolfBall.hpp; sourceTree = "<group>"; };
+		77BD0F562CF30AD800AB0119 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +62,36 @@
 		77BD0F432CEB6A6100AB0119 /* golf_simulator */ = {
 			isa = PBXGroup;
 			children = (
+				77BD0F552CF30AB500AB0119 /* Camera */,
+				77BD0F542CF3003200AB0119 /* Shader */,
+				77BD0F502CF2FF0200AB0119 /* Renderer */,
 				77BD0F442CEB6A6100AB0119 /* main.cpp */,
 				77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */,
 				77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */,
 			);
 			path = golf_simulator;
+			sourceTree = "<group>";
+		};
+		77BD0F502CF2FF0200AB0119 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		77BD0F542CF3003200AB0119 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+		77BD0F552CF30AB500AB0119 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				77BD0F562CF30AD800AB0119 /* Camera.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +125,7 @@
 				TargetAttributes = {
 					77BD0F402CEB6A6100AB0119 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -124,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */,
 				77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */,
 				77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */,
 			);
