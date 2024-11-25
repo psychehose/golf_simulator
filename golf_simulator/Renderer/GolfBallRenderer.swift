@@ -105,6 +105,53 @@ final class GolfBallRenderer: NSObject {
     self.ballVertexBuffer = ballBuffer
     self.groundVertexBuffer = groundBuffer
 
+    // MARK: - 렌더링 파이프라인 설정
+
+    // 셰이더 함수 로드
+    guard
+      let library = device.makeDefaultLibrary(),
+      let vertexFunction = library.makeFunction(name: "vertexShader"),
+      let fragmentFunction = library.makeFunction(name: "fragmentShader")
+    else {
+      return nil
+    }
+
+    // 렌더링 파이프라인 구성 설정
+    // 셰이더 함수 연결
+    let pipelineDescriptor = MTLRenderPipelineDescriptor()
+    pipelineDescriptor.vertexFunction = vertexFunction
+    pipelineDescriptor.fragmentFunction = fragmentFunction
+    pipelineDescriptor.colorAttachments[0].pixelFormat = metalView.colorPixelFormat
+    pipelineDescriptor.depthAttachmentPixelFormat = metalView.depthStencilPixelFormat
+
+    // 버텍스 디스크립터 설정
+    let vertexDescriptor = MTLVertexDescriptor()
+
+    // 위치 데이터 (x,y,z)
+    vertexDescriptor.attributes[0].format = .float3
+    vertexDescriptor.attributes[0].offset = 0
+    vertexDescriptor.attributes[0].bufferIndex = 0
+
+    // 법선 데이터 (nx, ny, nz)
+    vertexDescriptor.attributes[1].format = .float3
+    vertexDescriptor.attributes[1].offset = MemoryLayout<SIMD3<Float>>.stride
+    vertexDescriptor.attributes[1].bufferIndex = 0
+
+    // 전체 버텍스 크기 - GPU에게 버텍스 버퍼의 데이터 구조를 알려줘서 셰이더가 올바르게 데이터 읽을 수 있음
+    vertexDescriptor.layouts[0].stride = MemoryLayout<SIMD3<Float>>.stride * 2 // 크기
+    pipelineDescriptor.vertexDescriptor = vertexDescriptor
+
+    guard
+      let pipelineState = try? device.makeRenderPipelineState(descriptor: pipelineDescriptor)
+    else {
+      return nil
+    }
+    self.pipelineState = pipelineState
+
+    super.init()
+    metalView.delegate = self
+    metalView.clearColor = MTLClearColor(red: 0.7, green: 0.9, blue: 1.0, alpha: 1.0)
+
   }
 
 }
