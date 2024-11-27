@@ -228,9 +228,11 @@ extension GolfBallRenderer {
 
 extension GolfBallRenderer: MTKViewDelegate {
   func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+    camera.aspect = Float(size.width / size.height)
   }
 
   func draw(in view: MTKView) {
+
   }
 
 }
