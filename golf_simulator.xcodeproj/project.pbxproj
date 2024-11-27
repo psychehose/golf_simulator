@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F442CEB6A6100AB0119 /* main.cpp */; };
-		77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */; };
-		77BD0F532CF2FFD900AB0119 /* GolfBallRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */; };
-		77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F562CF30AD800AB0119 /* Camera.swift */; };
-		77BD0F5B2CF754D600AB0119 /* GolfBallBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */; };
-		77BD0F5D2CF7657500AB0119 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F5C2CF7657500AB0119 /* Shader.metal */; };
+		77BD10152CF7808300AB0119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD10142CF7808300AB0119 /* AppDelegate.swift */; };
+		77BD10172CF7808300AB0119 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD10162CF7808300AB0119 /* ViewController.swift */; };
+		77BD10192CF7808400AB0119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77BD10182CF7808400AB0119 /* Assets.xcassets */; };
+		77BD101C2CF7808400AB0119 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 77BD101B2CF7808400AB0119 /* Base */; };
+		77BD10252CF780A900AB0119 /* GolfBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */; };
+		77BD10262CF780A900AB0119 /* GolfBallBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */; };
+		77BD10272CF780B700AB0119 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F562CF30AD800AB0119 /* Camera.swift */; };
+		77BD10282CF780BA00AB0119 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F5C2CF7657500AB0119 /* Shader.metal */; };
+		77BD10292CF780BD00AB0119 /* GolfBallRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */; };
+		77BD102A2CF7811C00AB0119 /* GolfBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,16 +37,29 @@
 		77BD0F442CEB6A6100AB0119 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GolfBall.cpp; sourceTree = "<group>"; };
 		77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GolfBall.hpp; sourceTree = "<group>"; };
-		77BD0F512CF2FFD900AB0119 /* golf_simulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "golf_simulator-Bridging-Header.h"; sourceTree = "<group>"; };
 		77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfBallRenderer.swift; sourceTree = "<group>"; };
 		77BD0F562CF30AD800AB0119 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		77BD0F582CF7530200AB0119 /* GolfBallBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GolfBallBridge.h; sourceTree = "<group>"; };
 		77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GolfBallBridge.mm; sourceTree = "<group>"; };
 		77BD0F5C2CF7657500AB0119 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		77BD10122CF7808300AB0119 /* simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77BD10142CF7808300AB0119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		77BD10162CF7808300AB0119 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77BD10182CF7808400AB0119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77BD101B2CF7808400AB0119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		77BD101D2CF7808400AB0119 /* simulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = simulator.entitlements; sourceTree = "<group>"; };
+		77BD10212CF7809400AB0119 /* simulator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "simulator-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		77BD0F3E2CEB6A6100AB0119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77BD100F2CF7808300AB0119 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				77BD0F432CEB6A6100AB0119 /* golf_simulator */,
+				77BD10132CF7808300AB0119 /* simulator */,
 				77BD0F422CEB6A6100AB0119 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				77BD0F412CEB6A6100AB0119 /* golf_simulator */,
+				77BD10122CF7808300AB0119 /* simulator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,15 +90,7 @@
 		77BD0F432CEB6A6100AB0119 /* golf_simulator */ = {
 			isa = PBXGroup;
 			children = (
-				77BD0F552CF30AB500AB0119 /* Camera */,
-				77BD0F542CF3003200AB0119 /* Shader */,
-				77BD0F502CF2FF0200AB0119 /* Renderer */,
 				77BD0F442CEB6A6100AB0119 /* main.cpp */,
-				77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */,
-				77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */,
-				77BD0F512CF2FFD900AB0119 /* golf_simulator-Bridging-Header.h */,
-				77BD0F582CF7530200AB0119 /* GolfBallBridge.h */,
-				77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */,
 			);
 			path = golf_simulator;
 			sourceTree = "<group>";
@@ -107,6 +119,26 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		77BD10132CF7808300AB0119 /* simulator */ = {
+			isa = PBXGroup;
+			children = (
+				77BD0F552CF30AB500AB0119 /* Camera */,
+				77BD0F542CF3003200AB0119 /* Shader */,
+				77BD0F502CF2FF0200AB0119 /* Renderer */,
+				77BD0F4D2CEB6B5400AB0119 /* GolfBall.cpp */,
+				77BD0F4E2CEB6B5400AB0119 /* GolfBall.hpp */,
+				77BD0F582CF7530200AB0119 /* GolfBallBridge.h */,
+				77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */,
+				77BD10142CF7808300AB0119 /* AppDelegate.swift */,
+				77BD10162CF7808300AB0119 /* ViewController.swift */,
+				77BD10182CF7808400AB0119 /* Assets.xcassets */,
+				77BD101A2CF7808400AB0119 /* Main.storyboard */,
+				77BD101D2CF7808400AB0119 /* simulator.entitlements */,
+				77BD10212CF7809400AB0119 /* simulator-Bridging-Header.h */,
+			);
+			path = simulator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,6 +159,23 @@
 			productReference = 77BD0F412CEB6A6100AB0119 /* golf_simulator */;
 			productType = "com.apple.product-type.tool";
 		};
+		77BD10112CF7808300AB0119 /* simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77BD101E2CF7808400AB0119 /* Build configuration list for PBXNativeTarget "simulator" */;
+			buildPhases = (
+				77BD100E2CF7808300AB0119 /* Sources */,
+				77BD100F2CF7808300AB0119 /* Frameworks */,
+				77BD10102CF7808300AB0119 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = simulator;
+			productName = simulator;
+			productReference = 77BD10122CF7808300AB0119 /* simulator.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -134,9 +183,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					77BD0F402CEB6A6100AB0119 = {
+						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
+					};
+					77BD10112CF7808300AB0119 = {
 						CreatedOnToolsVersion = 15.4;
 						LastSwiftMigration = 1540;
 					};
@@ -156,25 +210,59 @@
 			projectRoot = "";
 			targets = (
 				77BD0F402CEB6A6100AB0119 /* golf_simulator */,
+				77BD10112CF7808300AB0119 /* simulator */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77BD10102CF7808300AB0119 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77BD10192CF7808400AB0119 /* Assets.xcassets in Resources */,
+				77BD101C2CF7808400AB0119 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77BD0F3D2CEB6A6100AB0119 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77BD0F5D2CF7657500AB0119 /* Shader.metal in Sources */,
-				77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */,
-				77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */,
+				77BD102A2CF7811C00AB0119 /* GolfBall.cpp in Sources */,
 				77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */,
-				77BD0F5B2CF754D600AB0119 /* GolfBallBridge.mm in Sources */,
-				77BD0F532CF2FFD900AB0119 /* GolfBallRenderer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77BD100E2CF7808300AB0119 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77BD10282CF780BA00AB0119 /* Shader.metal in Sources */,
+				77BD10172CF7808300AB0119 /* ViewController.swift in Sources */,
+				77BD10272CF780B700AB0119 /* Camera.swift in Sources */,
+				77BD10262CF780A900AB0119 /* GolfBallBridge.mm in Sources */,
+				77BD10292CF780BD00AB0119 /* GolfBallRenderer.swift in Sources */,
+				77BD10152CF7808300AB0119 /* AppDelegate.swift in Sources */,
+				77BD10252CF780A900AB0119 /* GolfBall.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		77BD101A2CF7808400AB0119 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77BD101B2CF7808400AB0119 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		77BD0F462CEB6A6100AB0119 /* Debug */ = {
@@ -235,6 +323,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "simulator/simulator-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -289,6 +379,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "simulator/simulator-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -300,9 +392,10 @@
 				DEVELOPMENT_TEAM = 83LNUYN53Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "golf_simulator/golf_simulator-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -314,7 +407,71 @@
 				DEVELOPMENT_TEAM = 83LNUYN53Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "golf_simulator/golf_simulator-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		77BD101F2CF7808400AB0119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = simulator/simulator.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 83LNUYN53Q;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.hose.simulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "simulator/simulator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		77BD10202CF7808400AB0119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = simulator/simulator.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 83LNUYN53Q;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.hose.simulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "simulator/simulator-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -336,6 +493,15 @@
 			buildConfigurations = (
 				77BD0F492CEB6A6100AB0119 /* Debug */,
 				77BD0F4A2CEB6A6100AB0119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77BD101E2CF7808400AB0119 /* Build configuration list for PBXNativeTarget "simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77BD101F2CF7808400AB0119 /* Debug */,
+				77BD10202CF7808400AB0119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

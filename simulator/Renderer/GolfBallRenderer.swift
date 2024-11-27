@@ -8,7 +8,7 @@
 import MetalKit
 import simd
 
-
+@objc
 final class GolfBallRenderer: NSObject {
   // MARK: - Properties
 
@@ -37,7 +37,7 @@ final class GolfBallRenderer: NSObject {
     var cameraPosition: SIMD3<Float>
   }
 
-
+  @objc
   init?(
     metalView: MTKView,
     velocity: Double,
