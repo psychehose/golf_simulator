@@ -12,6 +12,7 @@
 		77BD0F532CF2FFD900AB0119 /* GolfBallRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F522CF2FFD900AB0119 /* GolfBallRenderer.swift */; };
 		77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F562CF30AD800AB0119 /* Camera.swift */; };
 		77BD0F5B2CF754D600AB0119 /* GolfBallBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */; };
+		77BD0F5D2CF7657500AB0119 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 77BD0F5C2CF7657500AB0119 /* Shader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,7 @@
 		77BD0F562CF30AD800AB0119 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		77BD0F582CF7530200AB0119 /* GolfBallBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GolfBallBridge.h; sourceTree = "<group>"; };
 		77BD0F5A2CF754D600AB0119 /* GolfBallBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GolfBallBridge.mm; sourceTree = "<group>"; };
+		77BD0F5C2CF7657500AB0119 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		77BD0F542CF3003200AB0119 /* Shader */ = {
 			isa = PBXGroup;
 			children = (
+				77BD0F5C2CF7657500AB0119 /* Shader.metal */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BD0F5D2CF7657500AB0119 /* Shader.metal in Sources */,
 				77BD0F572CF30AD800AB0119 /* Camera.swift in Sources */,
 				77BD0F4F2CEB6B5400AB0119 /* GolfBall.cpp in Sources */,
 				77BD0F452CEB6A6100AB0119 /* main.cpp in Sources */,

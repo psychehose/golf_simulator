@@ -33,4 +33,17 @@
   _ball->update(dt);
 }
 
+- (double)positionX {
+  double x, y;
+  _ball->getPosition(x, y);
+  return x;
+}
+
+- (double)positionY {
+  double x, y;
+  _ball->getPosition(x, y);
+  return y;
+}
+
+
 @end

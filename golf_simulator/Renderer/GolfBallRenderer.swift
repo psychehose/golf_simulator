@@ -6,6 +6,7 @@
 //
 
 import MetalKit
+import simd
 
 
 final class GolfBallRenderer: NSObject {
@@ -22,17 +23,16 @@ final class GolfBallRenderer: NSObject {
   private var depthState: MTLDepthStencilState
   private var camera: Camera
 
-  // simulation
-  private var time: Float = 0
-  // @todo: #hose, will be impl and add GolfBallBridge for c++
+  private var golfBall: GolfBallBridge
+  private var lastUpdateTime: CFTimeInterval
 
   // cpu, gpu 둘 다 접근 가능해서 동적으로 업데이트되는 데이터 처리에 적합 (자주 바뀌는 데이터)
 
   struct Uniforms {
-    var modelMatrix: float4x4
-    var viewMatrix: float4x4
-    var projectionMatrix: float4x4
-    var normalMatrix: float3x3
+    var modelMatrix: float4x4 // 골프공의 위치를 이동시키는 변환 행렬
+    var viewMatrix: float4x4 // 카메라의 관점에서 월드를 바라보는 변환 행렬, 카메라의 위치와 방향에 따라 모든 객체들의 위치를 변환
+    var projectionMatrix: float4x4 // 3d 공간을 2d 화면으로 프로젝션 하는 변환 행렬
+    var normalMatrix: float3x3 // 법선 벡터를 변환하기 위한 행렬
     var lightPosition: SIMD3<Float>
     var cameraPosition: SIMD3<Float>
   }
@@ -44,6 +44,9 @@ final class GolfBallRenderer: NSObject {
     angle: Double,
     spin: Double
   ) {
+
+    golfBall = GolfBallBridge(velocity: velocity, angle: angle, spin: spin)
+    lastUpdateTime = CACurrentMediaTime()
 
     guard
       let device = MTLCreateSystemDefaultDevice(),
@@ -233,6 +236,90 @@ extension GolfBallRenderer: MTKViewDelegate {
 
   func draw(in view: MTKView) {
 
+    let currentTime = CACurrentMediaTime()
+    let deltaTime = currentTime - lastUpdateTime
+    lastUpdateTime = currentTime
+
+    golfBall.update(withTimeStep: deltaTime)
+    let ballX = Float(golfBall.positionX)
+    let ballY = Float(golfBall.positionY)
+
+    guard golfBall.isFlying(),
+          let commandBuffer = commandQueue.makeCommandBuffer(),
+          let desciptor = view.currentRenderPassDescriptor,
+          let encoder = commandBuffer.makeRenderCommandEncoder(descriptor: desciptor)
+    else {
+      return
+    }
+
+
+    // 유니폼 데이터 업데이트
+    var uniforms = Uniforms(
+      modelMatrix: float4x4(translation: SIMD3<Float>(ballX, ballY, 0)),
+      viewMatrix: camera.viewMatrix,
+      projectionMatrix: camera.projectionMatrix,
+      normalMatrix: float3x3(normalFrom4x4: camera.viewMatrix),
+      lightPosition: SIMD3<Float>(x: 5, y: 5, z: 5),
+      cameraPosition: camera.position
+    )
+
+    memcpy(uniformBuffer.contents(), &uniforms, MemoryLayout<Uniforms>.size)
+
+    encoder.setRenderPipelineState(pipelineState)
+    encoder.setDepthStencilState(depthState)
+    encoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
+
+    // GPU 메모리로 데이터 복사
+    memcpy(uniformBuffer.contents(), &uniforms, MemoryLayout<Uniforms>.size)
+
+    // render state 설정
+    encoder.setRenderPipelineState(pipelineState)
+    encoder.setDepthStencilState(depthState)
+    // 버퍼 바인딩
+    encoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
+
+    // 골프공 렌더링
+    encoder.setVertexBuffer(ballVertexBuffer, offset: 0, index: 0)
+    encoder.drawPrimitives(
+      type: .triangle,
+      vertexStart: 0,
+      vertexCount: ballVertexBuffer.length / MemoryLayout<Float>.stride / 6
+    )
+
+    // 지면 렌더링
+    encoder.setVertexBuffer(groundVertexBuffer, offset: 0, index: 0)
+    encoder.drawPrimitives(
+      type: .triangle,
+      vertexStart: 0,
+      vertexCount: 6
+    )
+
+    encoder.endEncoding()
+
+    if let drawable = view.currentDrawable {
+      commandBuffer.present(drawable)
+    }
+    commandBuffer.commit()
+
   }
 
+}
+
+extension float4x4 {
+  init(translation: SIMD3<Float>) {
+    self = matrix_identity_float4x4 // 단위 행렬
+    columns.3.x = translation.x // 4번째 열에 이동량
+    columns.3.y = translation.y
+    columns.3.z = translation.z
+  }
+}
+
+extension float3x3 {
+  init(normalFrom4x4 matrix: float4x4) {
+    self.init(
+      SIMD3<Float>(matrix.columns.0.x, matrix.columns.0.y, matrix.columns.0.z),
+      SIMD3<Float>(matrix.columns.1.x, matrix.columns.1.y, matrix.columns.1.z),
+      SIMD3<Float>(matrix.columns.2.x, matrix.columns.2.y, matrix.columns.2.z)
+    )
+  }
 }
