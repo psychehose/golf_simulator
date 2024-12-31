@@ -17,6 +17,10 @@ class Simulator {
 
   sf::RectangleShape groundShape;
 
+  sf::View camera;            // 카메라 뷰
+  sf::Vector2f cameraCenter;  // 카메라 중심점
+  const float CAMERA_SPEED = 0.1f;
+
  public:
   Simulator(double initialVelocity, double launchAngle, double initialSpin);
 
@@ -26,5 +30,6 @@ class Simulator {
   void handleEvents();
   void update();
   void render();
+  void updateCamera();
 };
 #endif /* Simulator_h */
