@@ -34,6 +34,10 @@ void Simulator::handleEvents() {
   if (auto event = window.pollEvent()) {
     if (event->is<sf::Event::Closed>()) {
       window.close();
+    } else if (const auto* keyEvent = event->getIf<sf::Event::KeyPressed>()) {
+      if (keyEvent->code == sf::Keyboard::Key::X) {
+        window.close();
+      }
     }
   }
 }
