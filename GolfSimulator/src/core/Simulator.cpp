@@ -4,7 +4,9 @@ Simulator::Simulator(double initialVelocity, double launchAngle,
                      double initialSpin)
     : window(sf::VideoMode(sf::Vector2u(800, 600)), "Golf Simulator"),
       golfBall(initialVelocity, launchAngle, initialSpin) {
-  camera.setSize(sf::Vector2f(800.f, 600.f));
+  // camera size - window size보다 2배 크기
+  // 때문에 2배 더 넓은 시야 (축소 모드)
+  camera.setSize(sf::Vector2f(1600.f, 1200.f));
   cameraCenter = sf::Vector2f(400.f, 300.f);
   camera.setCenter(cameraCenter);
 
@@ -52,6 +54,14 @@ void Simulator::render() {
 
   // 골프공 위치 업데이트 및 그리기
   auto position = golfBall.getPosition();
+  // SFML 화면 최상단이 0 아래로 갈수록 y값이 증가.
+  /*
+  물리 좌표계    화면 좌표계
+    ↑ +y         0 ─────
+    │            │    ↓ +y
+    │            │
+  0 ─────      500 ─────
+  */
   sf::Vector2f ballPosition(position.first * SCALE,
                             500.f - position.second * SCALE);
   ballShape.setPosition(ballPosition);
@@ -62,13 +72,15 @@ void Simulator::render() {
 
 void Simulator::updateCamera() {
   auto ballPos = golfBall.getPosition();
-  sf::Vector2f targetCenter(ballPos.first * SCALE,
-                            500.f - ballPos.second * SCALE);
+  // x 위치만 공을 따라가고, y는 고정
+  sf::Vector2f targetCenter(ballPos.first * SCALE, 300.f);
 
-  // 부드러운 카메라 이동
-  cameraCenter = cameraCenter + (targetCenter - cameraCenter) * CAMERA_SPEED;
+  // 부드러운 카메라 이동 (x축만)
+  cameraCenter.x =
+      cameraCenter.x + (targetCenter.x - cameraCenter.x) * CAMERA_SPEED;
+  // y축은 고정
+  cameraCenter.y = 300.f;
+
   camera.setCenter(cameraCenter);
-
-  // 카메라 적용
   window.setView(camera);
 }

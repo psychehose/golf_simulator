@@ -12,7 +12,7 @@ class Simulator {
   GolfBall golfBall;
   sf::CircleShape ballShape;
 
-  const float SCALE = 10.0f;
+  const float SCALE = 10.0f;  // 1m = 10px
   const float TIMESTEP = 1.0f / 60.0f;
 
   sf::RectangleShape groundShape;
