@@ -1,0 +1,5 @@
+#### Stack
+
+- SFML
+- C++
+- CMake

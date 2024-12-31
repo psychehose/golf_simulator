@@ -5,7 +5,7 @@
 //  Created by 김호세 on 11/18/24.
 //
 
-#include "GolfBall.hpp"
+#include "GolfBall.h"
 
 #include <cmath>
 

@@ -14,3 +14,7 @@
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 *.xcuserstate
+
+
+### cmake
+build/

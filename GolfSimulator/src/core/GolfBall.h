@@ -1,12 +1,12 @@
 //
-//  GolfBall.hpp
+//  GolfBall.h
 //  golf_simulator
 //
 //  Created by 김호세 on 11/18/24.
 //
 
-#ifndef GolfBall_hpp
-#define GolfBall_hpp
+#ifndef GolfBall_h
+#define GolfBall_h
 
 #include <iostream>
 
@@ -30,4 +30,4 @@ class GolfBall {
   std::pair<double, double> getPosition() const;
 };
 
-#endif /* GolfBall_hpp */
+#endif /* GolfBall_h */
