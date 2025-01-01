@@ -9,7 +9,7 @@
 class Simulator {
  private:
   sf::RenderWindow window;
-  GolfBall golfBall;
+  std::unique_ptr<GolfBall> golfBall;
   sf::CircleShape ballShape;
 
   const float SCALE = 10.0f;  // 1m = 10px

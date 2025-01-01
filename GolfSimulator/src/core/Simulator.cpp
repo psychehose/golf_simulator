@@ -3,7 +3,8 @@
 Simulator::Simulator(double initialVelocity, double launchAngle,
                      double initialSpin)
     : window(sf::VideoMode(sf::Vector2u(800, 600)), "Golf Simulator"),
-      golfBall(initialVelocity, launchAngle, initialSpin) {
+      golfBall(std::make_unique<GolfBall>(initialVelocity, launchAngle,
+                                          initialSpin)) {
   // camera size - window size보다 2배 크기
   // 때문에 2배 더 넓은 시야 (축소 모드)
   camera.setSize(sf::Vector2f(1600.f, 1200.f));
@@ -43,8 +44,8 @@ void Simulator::handleEvents() {
 }
 
 void Simulator::update() {
-  if (golfBall.isFlying()) {
-    golfBall.update(TIMESTEP);
+  if (golfBall->isFlying()) {
+    golfBall->update(TIMESTEP);
   }
 }
 
@@ -57,7 +58,7 @@ void Simulator::render() {
   window.draw(groundShape);
 
   // 골프공 위치 업데이트 및 그리기
-  auto position = golfBall.getPosition();
+  auto position = golfBall->getPosition();
   // SFML 화면 최상단이 0 아래로 갈수록 y값이 증가.
   /*
   물리 좌표계    화면 좌표계
@@ -75,7 +76,7 @@ void Simulator::render() {
 }
 
 void Simulator::updateCamera() {
-  auto ballPos = golfBall.getPosition();
+  auto ballPos = golfBall->getPosition();
   // x 위치만 공을 따라가고, y는 고정
   sf::Vector2f targetCenter(ballPos.first * SCALE, 300.f);
 
