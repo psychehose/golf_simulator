@@ -1,5 +1,7 @@
 #include "Simulator.h"
 
+#include <variant>
+
 Simulator::Simulator(double initialVelocity, double launchAngle,
                      double initialSpin)
     : window(sf::VideoMode(sf::Vector2u(800, 600)), "Golf Simulator"),
@@ -33,13 +35,7 @@ void Simulator::run() {
 
 void Simulator::handleEvents() {
   if (auto event = window.pollEvent()) {
-    if (event->is<sf::Event::Closed>()) {
-      window.close();
-    } else if (const auto* keyEvent = event->getIf<sf::Event::KeyPressed>()) {
-      if (keyEvent->code == sf::Keyboard::Key::X) {
-        window.close();
-      }
-    }
+    event->visit(EventVisitor{*this});
   }
 }
 

@@ -8,6 +8,25 @@
 
 class Simulator {
  private:
+  struct EventVisitor {
+    Simulator& simulator;
+    // Window Closed
+    void operator()(const sf::Event::Closed& event) {
+      simulator.window.close();
+    }
+
+    // Keyboard
+    void operator()(const sf::Event::KeyPressed& event) {
+      if (event.code == sf::Keyboard::Key::X) {
+        simulator.window.close();
+      }
+    }
+    // 다른 이벤트들은 무시
+    template <typename T>
+    void operator()(const T& event) {}
+  };
+
+ private:
   sf::RenderWindow window;
   std::unique_ptr<GolfBall> golfBall;
   sf::CircleShape ballShape;
