@@ -67,8 +67,7 @@ void Simulator::render() {
     │            │
   0 ─────      500 ─────
   */
-  sf::Vector2f ballPosition(position.first * SCALE,
-                            500.f - position.second * SCALE);
+  sf::Vector2f ballPosition(position.x * SCALE, 500.f - position.y * SCALE);
   ballShape.setPosition(ballPosition);
   window.draw(ballShape);
 
@@ -78,7 +77,7 @@ void Simulator::render() {
 void Simulator::updateCamera() {
   auto ballPos = golfBall->getPosition();
   // x 위치만 공을 따라가고, y는 고정
-  sf::Vector2f targetCenter(ballPos.first * SCALE, 300.f);
+  sf::Vector2f targetCenter(ballPos.x * SCALE, 300.f);
 
   // 부드러운 카메라 이동 (x축만)
   cameraCenter.x =

@@ -10,6 +10,11 @@
 
 #include <iostream>
 
+struct Position {
+  double x;
+  double y;
+};
+
 class GolfBall {
  private:
   const double gravity;          // 중력가속도: 9.81 m/s^2
@@ -19,7 +24,7 @@ class GolfBall {
   const double dragCoefficient;  // 항력계수: 0.47
   const double liftCoefficient;  // 양력계수: 0.1
 
-  double x, y;    // 골프공 위치
+  Position position;
   double vx, vy;  // x축, y축 방향의 속도
   double spin;    // 회전속도 (rad/s)
 
@@ -27,7 +32,7 @@ class GolfBall {
   GolfBall(double initialVelocity, double launchAngle, double initialSpin);
   void update(double dt);
   bool isFlying() const;
-  std::pair<double, double> getPosition() const;
+  Position getPosition() const;
 };
 
 #endif /* GolfBall_h */

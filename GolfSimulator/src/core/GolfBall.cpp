@@ -17,8 +17,8 @@ GolfBall::GolfBall(double initialVelocity, double launchAngle,
       radius(0.0213),
       dragCoefficient(0.47),
       liftCoefficient(0.1) {
-  x = 0;
-  y = 0;
+  position.x = 0;
+  position.y = 0;
   double angleRad = launchAngle * M_PI / 180.0;  // degree -> radian 변환
   vx = initialVelocity * cos(angleRad);  // 초기 속도의 수평 성분
   vy = initialVelocity * sin(angleRad);  // 초기 속도의 수직 성분
@@ -45,14 +45,12 @@ void GolfBall::update(double dt) {
   double ay =
       -gravity - (dragForce * vy / velocity) / mass + (liftForce / mass);
 
-  x += vx * dt;
-  y += vy * dt;
+  position.x += vx * dt;
+  position.y += vy * dt;
   vx += ax * dt;
   vy += ay * dt;
 }
 
-bool GolfBall::isFlying() const { return y >= 0; }
+bool GolfBall::isFlying() const { return position.y >= 0; }
 
-std::pair<double, double> GolfBall::getPosition() const {
-  return std::make_pair(x, y);
-}
+Position GolfBall::getPosition() const { return {position.x, position.y}; }
