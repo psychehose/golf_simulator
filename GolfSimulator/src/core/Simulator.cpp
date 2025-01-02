@@ -34,8 +34,22 @@ void Simulator::run() {
 }
 
 void Simulator::handleEvents() {
+  // if (auto event = window.pollEvent()) {
+  //   event->visit(EventVisitor{*this});
+  // }
+
   if (auto event = window.pollEvent()) {
-    event->visit(EventVisitor{*this});
+    event->visit([this](const auto& e) {
+      using T = std::decay_t<decltype(e)>;
+
+      if constexpr (std::is_same_v<T, sf::Event::Closed>) {
+        window.close();
+      } else if constexpr (std::is_same_v<T, sf::Event::KeyPressed>) {
+        if (e.code == sf::Keyboard::Key::X) {
+          window.close();
+        }
+      }
+    });
   }
 }
 
